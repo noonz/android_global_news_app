@@ -1,0 +1,2 @@
+include ':app'
+rootProject.name = "case_study_global_news"
