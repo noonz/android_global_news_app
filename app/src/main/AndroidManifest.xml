@@ -9,7 +9,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Case_study_global_news">
-        <activity android:name=".MainActivity">
+        <activity android:name=".ui.section.SectionActivity"></activity>
+        <activity android:name=".ui.search.SearchActivity" />
+        <activity android:name=".ui.main.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
