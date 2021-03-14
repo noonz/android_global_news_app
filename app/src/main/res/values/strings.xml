@@ -1,3 +1,6 @@
 <resources>
-    <string name="app_name">case_study_global_news</string>
+    <string name="app_name">Global News</string>
+    <string name="bot_nav_home">Home</string>
+    <string name="bot_nav_search">Search</string>
+    <string name="bot_nav_sections">Sections</string>
 </resources>
