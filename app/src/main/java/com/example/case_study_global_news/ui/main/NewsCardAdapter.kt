@@ -38,9 +38,7 @@ class NewsViewHolder private constructor(itemView: View) : RecyclerView.ViewHold
         }
     }
 
-    private val textView: TextView = itemView.findViewById(R.id.news_card_date)
 
     fun bind(value: String, positon: Int) {
-        textView.text = positon.toString()
     }
 }

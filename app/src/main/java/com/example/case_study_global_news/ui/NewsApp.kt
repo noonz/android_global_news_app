@@ -1,4 +1,7 @@
 package com.example.case_study_global_news.ui
 
-class NewsApp {
+import android.app.Application
+
+class NewsApp: Application() {
+    val serviceLocator: ServiceLocator = ServiceLocator()
 }
