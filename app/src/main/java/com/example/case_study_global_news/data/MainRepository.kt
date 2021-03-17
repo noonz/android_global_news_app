@@ -10,8 +10,8 @@ import java.io.IOException
 import java.lang.Exception
 
 class MainRepository(private val apiService: ApiService) {
-    private val _newsArticles = MutableLiveData<List<Articles>>()
-    val newsArticles: LiveData<List<Articles>> get() = _newsArticles
+    private val _newsArticles = MutableLiveData<NewsInfo>()
+    val newsArticles: LiveData<NewsInfo> get() = _newsArticles
 
     suspend fun getNewsArticles() {
         val newsArticles: NewsInfo? = try {
@@ -24,6 +24,6 @@ class MainRepository(private val apiService: ApiService) {
             null
         }
 
-        _newsArticles.value = newsArticles?.articles ?: emptyList()
+        _newsArticles.value = newsArticles ?: null
     }
 }

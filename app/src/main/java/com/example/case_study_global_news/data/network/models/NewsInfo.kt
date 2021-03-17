@@ -14,15 +14,15 @@ data class Articles (
     var title: String,
 
     @Json(name="urlToImage")
-    var imageURL: String,
+    var imageURL: String?,
 
     @Json(name="publishedAt")
     var date_published: String
-    )
+)
 
 @JsonClass(generateAdapter = true)
 data class Source (
 
     @Json(name="name")
     var publisher: String
-    )
+)

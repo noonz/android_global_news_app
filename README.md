@@ -5,12 +5,12 @@
 ### Main page
 Endpoint top headlines. Card views in recycler view using title, title image,
 published time, and possible save button.
-TODO: Get news from all countries
+TODO: Add images, publisher, dates to the card | add stylying | binding
 
 ### Search page
 Card views in a recycler view, using search keyword contained in title.
 Populate card views based on keyword existing in title. search everything endpoint using q parameter
-TODO:
+TODO: Search for articles
 
 ### Sections
 list view with different topics. Click topic and it searches articles related 
