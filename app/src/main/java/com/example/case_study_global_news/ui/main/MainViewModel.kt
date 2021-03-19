@@ -14,12 +14,16 @@ class MainViewModel(private val mainRepository: MainRepository): ViewModel() {
     private val _navigateToArticles = MutableLiveData<Articles?>();
     val navigateToArticles: LiveData<Articles?>get () = _navigateToArticles;
 
-    init {
-        viewModelScope.launch { mainRepository.getNewsArticles() }
-    }
-
     fun onArticleClick(articles: Articles){
-        //todo
+        _navigateToArticles.value = articles
+    }
+    fun onNavigateToDetailComplete(){
+        _navigateToArticles.value = null
+    }
+    init {
+        viewModelScope.launch {
+            mainRepository.getNewsArticles()
+        }
     }
 }
 

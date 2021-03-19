@@ -12,12 +12,13 @@ data class NewsInfo (
 data class Articles (
     var source: Source,
     var title: String,
+    var url: String,
 
     @Json(name="urlToImage")
     var imageURL: String?,
 
     @Json(name="publishedAt")
-    var date_published: String
+    var datePublished: String
 )
 
 @JsonClass(generateAdapter = true)
