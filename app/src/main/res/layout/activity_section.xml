@@ -6,4 +6,99 @@
     android:layout_height="match_parent"
     tools:context=".ui.section.SectionActivity">
 
+
+    <Button
+        android:id="@+id/button_business"
+        android:gravity="left"
+        android:layout_width="match_parent"
+        android:layout_height="53dp"
+        android:layout_marginTop="64dp"
+        android:background="#fff"
+        android:drawableLeft="@drawable/ic_baseline_about_24"
+        android:text="@string/business_text"
+        android:textColor="#000"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/button_entertainment"
+        android:gravity="left"
+        android:layout_width="match_parent"
+        android:layout_height="53dp"
+        android:background="#fff"
+        android:drawableLeft="@drawable/ic_baseline_about_24"
+        android:text="@string/entertainment_text"
+        android:textColor="#000"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/button_technology" />
+
+    <Button
+        android:id="@+id/button_general"
+        android:gravity="left"
+        android:layout_width="match_parent"
+        android:layout_height="53dp"
+        android:background="#fff"
+        android:drawableLeft="@drawable/ic_baseline_about_24"
+        android:text="@string/general_text"
+        android:textColor="#000"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/button_business" />
+
+    <Button
+        android:id="@+id/button_health"
+        android:gravity="left"
+        android:layout_width="match_parent"
+        android:layout_height="53dp"
+        android:background="#fff"
+        android:drawableLeft="@drawable/ic_baseline_about_24"
+        android:text="@string/health_text"
+        android:textColor="#000"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/button_general" />
+
+    <Button
+        android:id="@+id/button_science"
+        android:gravity="left"
+        android:layout_width="match_parent"
+        android:layout_height="53dp"
+        android:background="#fff"
+        android:drawableLeft="@drawable/ic_baseline_about_24"
+        android:text="@string/science_text"
+        android:textColor="#000"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/button_health" />
+
+    <Button
+        android:id="@+id/button_sports"
+        android:gravity="left"
+        android:layout_width="match_parent"
+        android:layout_height="53dp"
+        android:background="#fff"
+        android:drawableLeft="@drawable/ic_baseline_about_24"
+        android:text="@string/sports_text"
+        android:textColor="#000"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/button_science" />
+
+    <Button
+        android:id="@+id/button_technology"
+        android:gravity="left"
+        android:layout_width="match_parent"
+        android:layout_height="53dp"
+        android:background="#fff"
+        android:drawableLeft="@drawable/ic_baseline_about_24"
+        android:text="@string/technology_text"
+        android:textColor="#000"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/button_sports" />
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -6,10 +6,13 @@ import com.squareup.moshi.JsonClass
 @JsonClass(generateAdapter = true)
 data class NewsCategories (
     var sources: List<Categories>
-    )
+)
 
 @JsonClass(generateAdapter = true)
 data class Categories (
     @Json(name="category")
-    var newsCategory: String
-    )
+    var newsCategory: String,
+    var description: String,
+    var name: String,
+    var url: String
+)

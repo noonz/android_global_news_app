@@ -1,7 +1,9 @@
 package com.example.case_study_global_news.data
 
+import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
+import com.bumptech.glide.load.engine.executor.GlideExecutor.UncaughtThrowableStrategy.LOG
 import com.example.case_study_global_news.data.network.ApiService
 import com.example.case_study_global_news.data.network.models.Articles
 import com.example.case_study_global_news.data.network.models.NewsCategories
@@ -9,6 +11,8 @@ import com.example.case_study_global_news.data.network.models.NewsInfo
 import retrofit2.HttpException
 import java.io.IOException
 import java.lang.Exception
+import java.lang.IllegalArgumentException
+import kotlin.math.log
 
 class MainRepository(private val apiService: ApiService) {
     private val _newsArticles = MutableLiveData<NewsInfo>()
@@ -31,15 +35,15 @@ class MainRepository(private val apiService: ApiService) {
         _newsArticles.value = newsArticles ?: null
     }
 
-    suspend fun getNewsCategories() {
+    suspend fun getNewsCategories(keyword: String) {
         val newsCategories: NewsCategories? = try {
-            apiService.fetchNewsCategories("Health")
+            apiService.fetchNewsCategories(keyword)
         } catch (e: HttpException){
             null
         } catch (e: IOException) {
             null
         } catch (e: Exception) {
-            null
+          null
         }
 
         _newsCategories.value = newsCategories ?: null

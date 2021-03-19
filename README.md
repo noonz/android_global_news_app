@@ -5,7 +5,7 @@
 ### Main page
 Endpoint top headlines. Card views in recycler view using title, title image,
 published time, and possible save button.
-TODO: Add images, publisher, dates to the card | add stylying | binding
+TODO: add styling
 
 ### Search page
 Card views in a recycler view, using search keyword contained in title.
@@ -15,7 +15,7 @@ TODO: Search for articles
 ### Sections
 list view with different topics. Click topic and it searches articles related 
 to that topic. ex. clicking sports will search for sports articles.
-TODO:
+TODO: add styling
 
 ### Possible saved articles page
 Bookmark articles from anywhere to store in database for offline
