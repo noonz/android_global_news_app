@@ -23,7 +23,12 @@ data class Articles (
 
 @JsonClass(generateAdapter = true)
 data class Source (
-
     @Json(name="name")
     var publisher: String
 )
+
+//DateTime.now()
+// Example date
+// 2021-03-19T18:33:08
+
+// March 19
