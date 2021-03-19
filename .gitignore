@@ -1,8 +1,5 @@
-# android
-.gradle
+
 /local.properties
-/.idea
-*.imi
+
 .DS_Store
-/build
-captures/
+
