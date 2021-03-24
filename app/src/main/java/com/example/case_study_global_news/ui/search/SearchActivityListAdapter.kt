@@ -4,28 +4,28 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
-import com.example.case_study_global_news.data.network.models.Articles
+import com.example.case_study_global_news.data.network.models.ArticleInfo
 import com.example.case_study_global_news.databinding.NewsCardItemBinding
 
 class SearchActivityListAdapter(private val listener: OnResultClickListener) :
     RecyclerView.Adapter<SearchResultsViewHolder>() {
-    var data: List<Articles> = emptyList()
-
+    var searchResultInfoList: List<ArticleInfo> = emptyList()
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): SearchResultsViewHolder {
         return SearchResultsViewHolder.from(parent)
     }
 
     override fun onBindViewHolder(holder: SearchResultsViewHolder, position: Int) {
-        holder.bind(data[position], position, listener)
+        holder.bind(searchResultInfoList[position], position, listener)
     }
 
-    override fun getItemCount(): Int = data.size
+    override fun getItemCount(): Int = searchResultInfoList.size
 }
 
 class SearchResultsViewHolder private constructor(private val binding: NewsCardItemBinding) :
     RecyclerView.ViewHolder(binding.root) {
     companion object {
+        // A function that is used to create a new instance of ViewHolder class
         fun from(parent: ViewGroup): SearchResultsViewHolder {
             val binding = NewsCardItemBinding
                 .inflate(LayoutInflater.from(parent.context), parent, false)
@@ -33,7 +33,8 @@ class SearchResultsViewHolder private constructor(private val binding: NewsCardI
         }
     }
 
-    fun bind(value: Articles, positon: Int, listener: OnResultClickListener) {
+    // populate search result card items here
+    fun bind(value: ArticleInfo, positon: Int, listener: OnResultClickListener) {
         binding.newsCardTitle.text = value.title
         binding.newsCardDate.text = value.datePublished
         binding.newsCardPublisher.text = value.source.publisher
@@ -42,11 +43,12 @@ class SearchResultsViewHolder private constructor(private val binding: NewsCardI
             .centerInside()
             .into(binding.newsCardImage)
         binding.newsCardImage.setOnClickListener {
-            listener.onNewsClick(value)
+            listener.onResultClick(value)
         }
-
     }
 }
-class OnResultClickListener(private val listener: (info: Articles) -> Unit) {
-    fun onNewsClick(info: Articles) = listener.invoke(info)
+
+// helper class to handle a click event
+class OnResultClickListener(private val listener: (info: ArticleInfo) -> Unit) {
+    fun onResultClick(info: ArticleInfo) = listener.invoke(info)
 }

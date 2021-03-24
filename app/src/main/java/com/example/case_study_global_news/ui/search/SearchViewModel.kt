@@ -2,18 +2,17 @@ package com.example.case_study_global_news.ui.search
 
 import androidx.lifecycle.*
 import com.example.case_study_global_news.data.MainRepository
-import com.example.case_study_global_news.data.network.models.Articles
-import com.example.case_study_global_news.ui.main.MainViewModel
+import com.example.case_study_global_news.data.network.models.ArticleInfo
 import kotlinx.coroutines.launch
 import java.lang.IllegalArgumentException
 
 class SearchViewModel (private val mainRepository: MainRepository) : ViewModel(){
-    val resultList = mainRepository.searchResults
+    val searchResultList = mainRepository.searchResults
 
-    private val _navigateToSearchResults = MutableLiveData<Articles?>();
-    val navigateToSearchResult: LiveData<Articles?> get() = _navigateToSearchResults;
+    private val _navigateToSearchResults = MutableLiveData<ArticleInfo?>();
+    val navigateToSearchResult: LiveData<ArticleInfo?> get() = _navigateToSearchResults;
 
-    fun onResultClick(articles: Articles) {
+    fun onSearchResultClick(articles: ArticleInfo) {
         _navigateToSearchResults.value = articles
     }
 
@@ -23,7 +22,7 @@ class SearchViewModel (private val mainRepository: MainRepository) : ViewModel()
 
     init {
         viewModelScope.launch {
-            mainRepository.getSearchResults("covid")
+            mainRepository.getSearchResults("covid") // TODO: change keyword to user search input
         }
     }
 }
@@ -35,9 +34,6 @@ class SearchViewModelFactory(private val mainRepository: MainRepository) : ViewM
         if (modelClass.isAssignableFrom(SearchViewModel::class.java)) {
             return SearchViewModel(mainRepository) as T
         }
-
         throw IllegalArgumentException("View model cannot be assigned")
     }
-
-
 }

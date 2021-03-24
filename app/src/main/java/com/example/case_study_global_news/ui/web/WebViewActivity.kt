@@ -3,6 +3,7 @@ package com.example.case_study_global_news.ui.main
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.webkit.WebViewClient
 import com.example.case_study_global_news.databinding.ActivityWebViewBinding
 import com.example.case_study_global_news.ui.BundleKeys
 
@@ -24,8 +25,10 @@ class WebViewActivity : AppCompatActivity() {
 
         val newsUrl = if (action == Intent.ACTION_VIEW && data != null){
             data
-        }else intent.getStringExtra(BundleKeys.NEWS_NAME) ?: ""
+        }else intent.getStringExtra(BundleKeys.ARTICLE_URL) ?: ""
 
+        // force in-app web view
+        binding.newsWebView.webViewClient = WebViewClient()
         binding.newsWebView.loadUrl(newsUrl)
     }
 }

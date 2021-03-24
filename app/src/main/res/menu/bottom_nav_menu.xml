@@ -9,7 +9,7 @@
         android:title="@string/bot_nav_search"
         android:icon="@drawable/ic_baseline_search_24"/>
     <item
-        android:id="@+id/sections"
-        android:title="@string/bot_nav_sections"
+        android:id="@+id/categories"
+        android:title="@string/bot_nav_categories"
         android:icon="@drawable/ic_baseline_view_list_24"/>
 </menu>

@@ -4,12 +4,12 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.section.SectionActivity">
+    tools:context=".ui.categories.CategoryActivity">
 
 
     <Button
         android:id="@+id/button_business"
-        android:gravity="left"
+        android:gravity="start"
         android:layout_width="match_parent"
         android:layout_height="53dp"
         android:layout_marginTop="64dp"
@@ -24,7 +24,7 @@
 
     <Button
         android:id="@+id/button_entertainment"
-        android:gravity="left"
+        android:gravity="start"
         android:layout_width="match_parent"
         android:layout_height="53dp"
         android:background="#fff"
@@ -37,7 +37,7 @@
 
     <Button
         android:id="@+id/button_general"
-        android:gravity="left"
+        android:gravity="start"
         android:layout_width="match_parent"
         android:layout_height="53dp"
         android:background="#fff"
@@ -50,7 +50,7 @@
 
     <Button
         android:id="@+id/button_health"
-        android:gravity="left"
+        android:gravity="start"
         android:layout_width="match_parent"
         android:layout_height="53dp"
         android:background="#fff"
@@ -63,7 +63,7 @@
 
     <Button
         android:id="@+id/button_science"
-        android:gravity="left"
+        android:gravity="start"
         android:layout_width="match_parent"
         android:layout_height="53dp"
         android:background="#fff"
@@ -76,7 +76,7 @@
 
     <Button
         android:id="@+id/button_sports"
-        android:gravity="left"
+        android:gravity="start"
         android:layout_width="match_parent"
         android:layout_height="53dp"
         android:background="#fff"
@@ -89,7 +89,7 @@
 
     <Button
         android:id="@+id/button_technology"
-        android:gravity="left"
+        android:gravity="start"
         android:layout_width="match_parent"
         android:layout_height="53dp"
         android:background="#fff"

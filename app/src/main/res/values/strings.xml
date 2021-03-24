@@ -2,7 +2,7 @@
     <string name="app_name">Global News</string>
     <string name="bot_nav_home">Home</string>
     <string name="bot_nav_search">Search</string>
-    <string name="bot_nav_sections">Sections</string>
+    <string name="bot_nav_categories">Categories</string>
     <string name="health_text">Health</string>
     <string name="science_text">Science</string>
     <string name="business_text">Business</string>

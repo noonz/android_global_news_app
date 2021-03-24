@@ -5,7 +5,7 @@
     <uses-permission android:name="android.permission.INTERNET" />
 
     <application
-        android:name=".ui.NewsApp"
+        android:name=".ui.GlobalNewsApp"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
@@ -14,8 +14,8 @@
         android:theme="@style/Theme.Case_study_global_news"
         android:usesCleartextTraffic="true">
         <activity android:name=".ui.main.WebViewActivity"></activity>
-        <activity android:name=".ui.section.SectionsNewsDetailsActivity" />
-        <activity android:name=".ui.section.SectionActivity" />
+        <activity android:name=".ui.categories.CategorySelectedActivity" />
+        <activity android:name=".ui.categories.CategoryActivity" />
         <activity android:name=".ui.search.SearchActivity" />
         <activity android:name=".ui.main.MainActivity">
             <intent-filter>

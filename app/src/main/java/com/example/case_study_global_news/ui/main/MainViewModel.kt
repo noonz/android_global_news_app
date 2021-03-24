@@ -2,24 +2,22 @@ package com.example.case_study_global_news.ui.main
 
 import androidx.lifecycle.*
 import com.example.case_study_global_news.data.MainRepository
-import com.example.case_study_global_news.data.network.models.Articles
-import com.example.case_study_global_news.data.network.models.NewsInfo
+import com.example.case_study_global_news.data.network.models.ArticleInfo
 import kotlinx.coroutines.launch
 import java.lang.IllegalArgumentException
 
 class MainViewModel(private val mainRepository: MainRepository) : ViewModel() {
+    val articleList = mainRepository.articles
 
-    val newsList = mainRepository.newsArticles
+    private val _navigateToArticleWebView = MutableLiveData<ArticleInfo?>();
+    val navigateToArticleWebView: LiveData<ArticleInfo?> get() = _navigateToArticleWebView;
 
-    private val _navigateToArticles = MutableLiveData<Articles?>();
-    val navigateToArticles: LiveData<Articles?> get() = _navigateToArticles;
-
-    fun onArticleClick(articles: Articles) {
-        _navigateToArticles.value = articles
+    fun onArticleClick(articles: ArticleInfo) {
+        _navigateToArticleWebView.value = articles
     }
 
-    fun onNavigateToDetailComplete() {
-        _navigateToArticles.value = null
+    fun onNavigateArticleComplete() {
+        _navigateToArticleWebView.value = null
     }
 
     init {

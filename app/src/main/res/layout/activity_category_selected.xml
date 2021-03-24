@@ -4,10 +4,10 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.section.SectionsNewsDetailsActivity">
+    tools:context=".ui.categories.CategorySelectedActivity">
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/category_news_details"
+        android:id="@+id/selected_category_recycler_view"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         tools:layout_editor_absoluteX="158dp"

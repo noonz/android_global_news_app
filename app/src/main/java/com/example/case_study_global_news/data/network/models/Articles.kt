@@ -4,12 +4,12 @@ import com.squareup.moshi.Json
 import com.squareup.moshi.JsonClass
 
 @JsonClass(generateAdapter = true)
-data class NewsInfo (
-    var articles: List<Articles>
+data class Articles (
+    var articles: List<ArticleInfo>
 )
 
 @JsonClass(generateAdapter = true)
-data class Articles (
+data class ArticleInfo (
     var source: Source,
     var title: String,
     var url: String,
@@ -19,7 +19,9 @@ data class Articles (
 
     @Json(name="publishedAt")
     var datePublished: String
-)
+){
+    // TODO: convert date published to time since published. Ex: "published 2 hours ago"
+}
 
 @JsonClass(generateAdapter = true)
 data class Source (
@@ -30,5 +32,3 @@ data class Source (
 // DateTime.now()
 // Example date
 // 2021-03-19T18:33:08
-
-// March 19
