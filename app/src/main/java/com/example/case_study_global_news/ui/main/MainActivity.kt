@@ -11,6 +11,7 @@ import com.example.case_study_global_news.data.MainRepository
 import com.example.case_study_global_news.databinding.ActivityMainBinding
 import com.example.case_study_global_news.ui.BundleKeys
 import com.example.case_study_global_news.ui.NewsApp
+import com.example.case_study_global_news.ui.search.SearchActivity
 import com.example.case_study_global_news.ui.section.SectionActivity
 import com.google.android.material.bottomnavigation.BottomNavigationView
 
@@ -22,6 +23,7 @@ class MainActivity : AppCompatActivity() {
         val mainRepository = MainRepository(apiService)
         MainViewModelFactory(mainRepository)
     }
+
     private lateinit var binding: ActivityMainBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -59,16 +61,19 @@ class MainActivity : AppCompatActivity() {
                     R.id.home -> {
                         val intent = Intent(this, MainActivity::class.java)
                         startActivity(intent)
+
                         return@OnNavigationItemSelectedListener true
                     }
                     R.id.search -> {
-                        val intent = Intent(this, MainActivity::class.java)
+                        val intent = Intent(this, SearchActivity::class.java)
                         startActivity(intent)
+
                         return@OnNavigationItemSelectedListener true
                     }
                     R.id.sections -> {
                         val intent = Intent(this, SectionActivity::class.java)
                         startActivity(intent)
+
                         return@OnNavigationItemSelectedListener true
                     }
                 }

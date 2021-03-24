@@ -21,6 +21,25 @@ class MainRepository(private val apiService: ApiService) {
     private val _newsCategories = MutableLiveData<NewsCategories>()
     val newsCategories: LiveData<NewsCategories> get() = _newsCategories
 
+    private val _searchResults = MutableLiveData<NewsInfo>()
+    val searchResults: LiveData<NewsInfo> get() = _searchResults
+
+    suspend fun getSearchResults(keyword: String) {
+        val searchResults: NewsInfo? = try {
+            apiService.fetchSearchResults(keyword)
+        } catch (e: HttpException){
+            null
+        } catch (e: IOException) {
+            null
+        } catch (e: Exception) {
+            null
+        }
+
+        _searchResults.value = searchResults ?: null
+//        Log.v("zhihong",_searchResults.value.toString())
+    }
+
+
     suspend fun getNewsArticles() {
         val newsArticles: NewsInfo? = try {
             apiService.fetchTopHeadlines()

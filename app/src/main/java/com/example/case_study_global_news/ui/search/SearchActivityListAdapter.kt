@@ -1,48 +1,39 @@
-package com.example.case_study_global_news.ui.main
+package com.example.case_study_global_news.ui.search
 
-import android.text.format.DateFormat
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
-import android.widget.ImageView
-import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
-import com.example.case_study_global_news.R
 import com.example.case_study_global_news.data.network.models.Articles
 import com.example.case_study_global_news.databinding.NewsCardItemBinding
-import java.time.LocalDateTime
-import java.time.format.DateTimeFormatter
-import java.util.*
 
-class NewsCardAdapter(private val listener: OnNewsClickListener) :
-    RecyclerView.Adapter<NewsViewHolder>() {
+class SearchActivityListAdapter(private val listener: OnResultClickListener) :
+    RecyclerView.Adapter<SearchResultsViewHolder>() {
     var data: List<Articles> = emptyList()
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): NewsViewHolder {
-        return NewsViewHolder.from(parent)
+
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): SearchResultsViewHolder {
+        return SearchResultsViewHolder.from(parent)
     }
 
-    override fun onBindViewHolder(holder: NewsViewHolder, position: Int) {
+    override fun onBindViewHolder(holder: SearchResultsViewHolder, position: Int) {
         holder.bind(data[position], position, listener)
     }
 
     override fun getItemCount(): Int = data.size
 }
 
-class NewsViewHolder private constructor(private val binding: NewsCardItemBinding) :
+class SearchResultsViewHolder private constructor(private val binding: NewsCardItemBinding) :
     RecyclerView.ViewHolder(binding.root) {
     companion object {
-        fun from(parent: ViewGroup): NewsViewHolder {
+        fun from(parent: ViewGroup): SearchResultsViewHolder {
             val binding = NewsCardItemBinding
                 .inflate(LayoutInflater.from(parent.context), parent, false)
-            return NewsViewHolder(binding)
+            return SearchResultsViewHolder(binding)
         }
     }
 
-    fun bind(value: Articles, positon: Int, listener: OnNewsClickListener) {
-
-
+    fun bind(value: Articles, positon: Int, listener: OnResultClickListener) {
         binding.newsCardTitle.text = value.title
         binding.newsCardDate.text = value.datePublished
         binding.newsCardPublisher.text = value.source.publisher
@@ -56,7 +47,6 @@ class NewsViewHolder private constructor(private val binding: NewsCardItemBindin
 
     }
 }
-
-class OnNewsClickListener(private val listener: (info: Articles) -> Unit) {
+class OnResultClickListener(private val listener: (info: Articles) -> Unit) {
     fun onNewsClick(info: Articles) = listener.invoke(info)
 }

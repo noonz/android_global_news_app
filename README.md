@@ -23,12 +23,12 @@ Moshi: Parse JSON
 ### Main page
 Endpoint top headlines. Card views in recycler view using title, title image,
 published time, and possible save button.
-TODO: add styling
+TODO: add styling,  fix the selected bottom navigation bar
 
 ### Search page
 Card views in a recycler view, using search keyword contained in title.
 Populate card views based on keyword existing in title. search everything endpoint using q parameter
-TODO: Build search activity, viewmodel, and adapter
+TODO: add search bar, styling, fix the selected bottom navigation bar
 
 ### Sections
 list view with different topics. Click topic and it searches articles related 
@@ -38,6 +38,6 @@ TODO: figure out why section articles are loading in external browser instead of
 ### Possible saved articles page
 Bookmark articles from anywhere to store in database for offline
 viewing.
-TODO: viewpager2 for favourites list
+TODO: viewpager2 for favourites list , fix the selected bottom navigation bar
 
 ## Credits: Dave, Zhihong, Rasheen

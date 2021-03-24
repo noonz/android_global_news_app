@@ -20,10 +20,6 @@ import java.util.*
 class SectionNewsDetailsAdapter(private val listener: OnSectionsNewsClickListener) :
     RecyclerView.Adapter<SectionDetailsViewHolder>() {
     var data: List<Categories> = emptyList()
-//    override fun onViewRecycled(holder: SectionDetailsViewHolder) {
-//        super.onViewRecycled(holder)
-//
-//    }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): SectionDetailsViewHolder {
         return SectionDetailsViewHolder.from(parent)

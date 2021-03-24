@@ -11,7 +11,8 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.Case_study_global_news">
+        android:theme="@style/Theme.Case_study_global_news"
+        android:usesCleartextTraffic="true">
         <activity android:name=".ui.main.WebViewActivity"></activity>
         <activity android:name=".ui.section.SectionsNewsDetailsActivity" />
         <activity android:name=".ui.section.SectionActivity" />
