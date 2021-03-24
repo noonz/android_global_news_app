@@ -20,10 +20,10 @@ import java.util.*
 class SectionNewsDetailsAdapter(private val listener: OnSectionsNewsClickListener) :
     RecyclerView.Adapter<SectionDetailsViewHolder>() {
     var data: List<Categories> = emptyList()
-    override fun onViewRecycled(holder: SectionDetailsViewHolder) {
-        super.onViewRecycled(holder)
-
-    }
+//    override fun onViewRecycled(holder: SectionDetailsViewHolder) {
+//        super.onViewRecycled(holder)
+//
+//    }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): SectionDetailsViewHolder {
         return SectionDetailsViewHolder.from(parent)
@@ -36,16 +36,13 @@ class SectionNewsDetailsAdapter(private val listener: OnSectionsNewsClickListene
     override fun getItemCount(): Int = data.size
 }
 
-class SectionDetailsViewHolder private constructor(private val binding: SectionCardItemsBinding) : RecyclerView.ViewHolder(binding.root) {
+class SectionDetailsViewHolder private constructor(private val binding: SectionCardItemsBinding) :
+    RecyclerView.ViewHolder(binding.root) {
     companion object {
         fun from(parent: ViewGroup): SectionDetailsViewHolder {
             val binding = SectionCardItemsBinding
                 .inflate(LayoutInflater.from(parent.context), parent, false)
             return SectionDetailsViewHolder(binding)
-//            val itemView = LayoutInflater.from(parent.context)
-//                .inflate(R.layout.news_card_item, parent, false)
-//
-//            return NewsViewHolder(itemView)
         }
     }
 

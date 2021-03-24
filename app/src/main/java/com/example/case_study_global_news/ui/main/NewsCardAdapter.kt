@@ -34,21 +34,17 @@ class NewsCardAdapter(private val listener: OnNewsClickListener) :
     override fun getItemCount(): Int = data.size
 }
 
-class NewsViewHolder private constructor(private val binding: NewsCardItemBinding) : RecyclerView.ViewHolder(binding.root) {
+class NewsViewHolder private constructor(private val binding: NewsCardItemBinding) :
+    RecyclerView.ViewHolder(binding.root) {
     companion object {
         fun from(parent: ViewGroup): NewsViewHolder {
             val binding = NewsCardItemBinding
                 .inflate(LayoutInflater.from(parent.context), parent, false)
             return NewsViewHolder(binding)
-//            val itemView = LayoutInflater.from(parent.context)
-//                .inflate(R.layout.news_card_item, parent, false)
-//
-//            return NewsViewHolder(itemView)
         }
     }
 
     fun bind(value: Articles, positon: Int, listener: OnNewsClickListener) {
-
 
 
         binding.newsCardTitle.text = value.title

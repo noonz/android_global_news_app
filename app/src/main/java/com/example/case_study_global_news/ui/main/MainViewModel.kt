@@ -7,19 +7,21 @@ import com.example.case_study_global_news.data.network.models.NewsInfo
 import kotlinx.coroutines.launch
 import java.lang.IllegalArgumentException
 
-class MainViewModel(private val mainRepository: MainRepository): ViewModel() {
+class MainViewModel(private val mainRepository: MainRepository) : ViewModel() {
 
     val newsList = mainRepository.newsArticles
 
     private val _navigateToArticles = MutableLiveData<Articles?>();
-    val navigateToArticles: LiveData<Articles?>get () = _navigateToArticles;
+    val navigateToArticles: LiveData<Articles?> get() = _navigateToArticles;
 
-    fun onArticleClick(articles: Articles){
+    fun onArticleClick(articles: Articles) {
         _navigateToArticles.value = articles
     }
-    fun onNavigateToDetailComplete(){
+
+    fun onNavigateToDetailComplete() {
         _navigateToArticles.value = null
     }
+
     init {
         viewModelScope.launch {
             mainRepository.getNewsArticles()
@@ -27,12 +29,12 @@ class MainViewModel(private val mainRepository: MainRepository): ViewModel() {
     }
 }
 
-class MainViewModelFactory(private val mainRepository: MainRepository): ViewModelProvider.Factory{
+class MainViewModelFactory(private val mainRepository: MainRepository) : ViewModelProvider.Factory {
 
     @Suppress("UNCHECKED_CASTS")
     override fun <T : ViewModel?> create(modelClass: Class<T>): T {
-        if(modelClass.isAssignableFrom(MainViewModel::class.java)){
-            return  MainViewModel(mainRepository) as T
+        if (modelClass.isAssignableFrom(MainViewModel::class.java)) {
+            return MainViewModel(mainRepository) as T
         }
 
         throw IllegalArgumentException("View model cannot be assigned")

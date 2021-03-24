@@ -7,14 +7,18 @@ import retrofit2.http.Path
 import retrofit2.http.Query
 
 interface ApiService {
-
-
     // base-url https://newsapi.org/v2/
+
+    // Endpoint #1: top-headlines?language=en
     @GET("top-headlines?language=en&apiKey=86209e63f5784c66b33502c1d0bc66fe")
     suspend fun fetchTopHeadlines(): NewsInfo
 
-    //sources?apiKey=86209e63f5784c66b33502c1d0bc66fe&category=business
+    // Endpoint #2: sources?apiKey=86209e63f5784c66b33502c1d0bc66fe&category=business
     // retrofit appends the query with the value and arguments
     @GET("sources?apiKey=86209e63f5784c66b33502c1d0bc66fe&language=en")
     suspend fun fetchNewsCategories(@Query("category") category: String): NewsCategories
+
+    // Endpoint #3: everything?&apiKey=API_KEY&q=SEARCHPARAM
+    @GET("everything?&apiKey=86209e63f5784c66b33502c1d0bc66fe&language=en")
+    suspend fun searchAllNews(@Query("q") q: String): NewsInfo
 }

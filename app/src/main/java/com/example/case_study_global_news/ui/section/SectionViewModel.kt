@@ -9,21 +9,36 @@ import com.example.case_study_global_news.ui.BundleKeys
 import kotlinx.coroutines.launch
 import java.lang.IllegalArgumentException
 
-class SectionViewModel(private val mainRepository: MainRepository, private val state: SavedStateHandle): ViewModel() {
+class SectionViewModel(
+    private val mainRepository: MainRepository,
+    private val state: SavedStateHandle
+) : ViewModel() {
 
     val newsCategories = mainRepository.newsCategories
+
+    private val _navigateToSectionWebView = MutableLiveData<Categories?>();
+    val navigateToSectionWebView: LiveData<Categories?> get() = _navigateToSectionWebView;
 
     private val keyword: String get() = state.get(BundleKeys.KEYWORD) ?: ""
 
     private val _navigateToCategories = MutableLiveData<Categories?>();
-    val navigateToCategories: LiveData<Categories?> get () = _navigateToCategories;
+    val navigateToCategories: LiveData<Categories?> get() = _navigateToCategories;
 
-    fun onSectionClick(category: Categories){
+    fun onSectionDetailClick(category: Categories) {
+        _navigateToSectionWebView.value = category
+    }
+
+    fun onSectionDetailClickComplete() {
+        _navigateToSectionWebView.value = null
+    }
+
+    fun onSectionClick(category: Categories) {
         _navigateToCategories.value = category
     }
-    fun onNavigateToSectionComplete(){
-        _navigateToCategories.value = null
-    }
+
+    //    fun onNavigateToSectionComplete(){
+//        _navigateToCategories.value = null
+//    }
     init {
         viewModelScope.launch {
             mainRepository.getNewsCategories(keyword)
@@ -31,7 +46,11 @@ class SectionViewModel(private val mainRepository: MainRepository, private val s
     }
 }
 
-class SectionViewModelFactory(private val mainRepository: MainRepository, owner: SavedStateRegistryOwner, defaultArgs: Bundle?): AbstractSavedStateViewModelFactory(owner,defaultArgs){
+class SectionViewModelFactory(
+    private val mainRepository: MainRepository,
+    owner: SavedStateRegistryOwner,
+    defaultArgs: Bundle?
+) : AbstractSavedStateViewModelFactory(owner, defaultArgs) {
 
     @Suppress("UNCHECKED_CASTS")
     override fun <T : ViewModel?> create(
@@ -39,7 +58,7 @@ class SectionViewModelFactory(private val mainRepository: MainRepository, owner:
         modelClass: Class<T>,
         handle: SavedStateHandle
     ): T {
-        if(modelClass.isAssignableFrom(SectionViewModel::class.java)){
+        if (modelClass.isAssignableFrom(SectionViewModel::class.java)) {
             return SectionViewModel(mainRepository, handle) as T
         }
 

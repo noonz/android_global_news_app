@@ -12,8 +12,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Case_study_global_news">
-        <activity android:name=".ui.section.SectionsNewsDetailsActivity"></activity>
-        <activity android:name=".ui.main.NewsDetailsActivity" />
+        <activity android:name=".ui.main.WebViewActivity"></activity>
+        <activity android:name=".ui.section.SectionsNewsDetailsActivity" />
         <activity android:name=".ui.section.SectionActivity" />
         <activity android:name=".ui.search.SearchActivity" />
         <activity android:name=".ui.main.MainActivity">

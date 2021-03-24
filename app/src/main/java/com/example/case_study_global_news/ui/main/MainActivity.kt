@@ -3,15 +3,11 @@ package com.example.case_study_global_news.ui.main
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.view.Menu
-import android.view.MenuItem
 import androidx.activity.viewModels
 import androidx.lifecycle.observe
 import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
 import com.example.case_study_global_news.R
 import com.example.case_study_global_news.data.MainRepository
-import com.example.case_study_global_news.data.network.models.NewsInfo
 import com.example.case_study_global_news.databinding.ActivityMainBinding
 import com.example.case_study_global_news.ui.BundleKeys
 import com.example.case_study_global_news.ui.NewsApp
@@ -36,22 +32,19 @@ class MainActivity : AppCompatActivity() {
         binding.newsRecyclerView.layoutManager = LinearLayoutManager(this)
 
 
-
-
         val adapter = NewsCardAdapter(OnNewsClickListener { article ->
             viewModel.onArticleClick(article)
         })
         binding.newsRecyclerView.adapter = adapter
 
-        viewModel.newsList.observe(this){
-            //var list = it as NewsInfo
+        viewModel.newsList.observe(this) {
             adapter.data = it.articles
             adapter.notifyDataSetChanged()
         }
 
-        viewModel.navigateToArticles.observe(this){articles ->
+        viewModel.navigateToArticles.observe(this) { articles ->
             articles?.let {
-                val intent = Intent(this, NewsDetailsActivity::class.java).apply {
+                val intent = Intent(this, WebViewActivity::class.java).apply {
                     putExtra(BundleKeys.NEWS_NAME, articles.url)
                 }
                 startActivity(intent)
@@ -60,29 +53,30 @@ class MainActivity : AppCompatActivity() {
         }
 
 
-
-
-        val mOnNavigationItemSelectedListener = BottomNavigationView.OnNavigationItemSelectedListener { menuItem ->
-            when (menuItem.itemId) {
-                R.id.home -> {
-                    val intent = Intent(this, MainActivity::class.java)
-                    startActivity(intent)
-                    return@OnNavigationItemSelectedListener true
+        val mOnNavigationItemSelectedListener =
+            BottomNavigationView.OnNavigationItemSelectedListener { menuItem ->
+                when (menuItem.itemId) {
+                    R.id.home -> {
+                        val intent = Intent(this, MainActivity::class.java)
+                        startActivity(intent)
+                        return@OnNavigationItemSelectedListener true
+                    }
+                    R.id.search -> {
+                        val intent = Intent(this, MainActivity::class.java)
+                        startActivity(intent)
+                        return@OnNavigationItemSelectedListener true
+                    }
+                    R.id.sections -> {
+                        val intent = Intent(this, SectionActivity::class.java)
+                        startActivity(intent)
+                        return@OnNavigationItemSelectedListener true
+                    }
                 }
-                R.id.search -> {
-                    val intent = Intent(this, MainActivity::class.java)
-                    startActivity(intent)
-                    return@OnNavigationItemSelectedListener true
-                }
-                R.id.sections -> {
-                    val intent = Intent(this, SectionActivity::class.java)
-                    startActivity(intent)
-                    return@OnNavigationItemSelectedListener true
-                }
+                false
             }
-            false
-        }
 
-        binding.bottomNavigationView.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener)
+        binding.bottomNavigationView.setOnNavigationItemSelectedListener(
+            mOnNavigationItemSelectedListener
+        )
     }
 }
