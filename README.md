@@ -15,7 +15,7 @@ Libraries used in this project include:
 **Moshi:** Parse JSON  
 
 ## Screenshots
-![](images\global_news_beta.PNG)
+![](./app/src/main/res/images/global_news_beta.PNG)
 
 ## TODO
 
