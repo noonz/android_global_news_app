@@ -22,6 +22,10 @@ class CategorySelectedActivity : AppCompatActivity() {
     private lateinit var binding: ActivityCategorySelectedBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
+
+        supportActionBar?.setTitle(intent.extras?.get("keyword").toString().capitalize())
+
+
         super.onCreate(savedInstanceState)
         binding = ActivityCategorySelectedBinding.inflate(layoutInflater)
         setContentView(binding.root)

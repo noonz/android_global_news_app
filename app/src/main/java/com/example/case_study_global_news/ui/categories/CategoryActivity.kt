@@ -2,10 +2,13 @@ package com.example.case_study_global_news.ui.categories
 
 import android.content.Intent
 import android.os.Bundle
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.case_study_global_news.R
 import com.example.case_study_global_news.databinding.ActivityCategoryBinding
 import com.example.case_study_global_news.ui.BaseActivity
 import com.example.case_study_global_news.ui.BundleKeys
+import com.example.case_study_global_news.ui.main.MainCardAdapter
+import com.example.case_study_global_news.ui.main.OnArticleClickListener
 import com.google.android.material.bottomnavigation.BottomNavigationView
 
 class CategoryActivity : BaseActivity() {
@@ -19,49 +22,21 @@ class CategoryActivity : BaseActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
+        supportActionBar?.setTitle("Categories")
+
         binding = ActivityCategoryBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        binding.buttonBusiness.setOnClickListener {
-            val intent = Intent(this, CategorySelectedActivity::class.java)
-            intent.putExtra(BundleKeys.KEYWORD, "business")
-            startActivity(intent)
-        }
 
-        binding.buttonEntertainment.setOnClickListener {
-            val intent = Intent(this, CategorySelectedActivity::class.java)
-            intent.putExtra(BundleKeys.KEYWORD, "entertainment")
-            startActivity(intent)
-        }
+        binding.categoryListView.layoutManager = LinearLayoutManager(this)
 
-        binding.buttonGeneral.setOnClickListener {
-            val intent = Intent(this, CategorySelectedActivity::class.java)
-            intent.putExtra(BundleKeys.KEYWORD, "general")
-            startActivity(intent)
-        }
 
-        binding.buttonHealth.setOnClickListener {
+        val adapter = CategoryListAdapter(OnCategoryClickListener { category ->
             val intent = Intent(this, CategorySelectedActivity::class.java)
-            intent.putExtra(BundleKeys.KEYWORD, "health")
+            intent.putExtra(BundleKeys.KEYWORD, category)
             startActivity(intent)
-        }
+        })
+        binding.categoryListView.adapter = adapter
 
-        binding.buttonScience.setOnClickListener {
-            val intent = Intent(this, CategorySelectedActivity::class.java)
-            intent.putExtra(BundleKeys.KEYWORD, "science")
-            startActivity(intent)
-        }
-
-        binding.buttonSports.setOnClickListener {
-            val intent = Intent(this, CategorySelectedActivity::class.java)
-            intent.putExtra(BundleKeys.KEYWORD, "sports")
-            startActivity(intent)
-        }
-
-        binding.buttonTechnology.setOnClickListener {
-            val intent = Intent(this, CategorySelectedActivity::class.java)
-            intent.putExtra(BundleKeys.KEYWORD, "technology")
-            startActivity(intent)
-        }
     }
 }

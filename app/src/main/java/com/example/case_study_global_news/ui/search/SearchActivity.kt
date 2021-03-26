@@ -16,7 +16,6 @@ import com.google.android.material.bottomnavigation.BottomNavigationView
 
 class SearchActivity : BaseActivity() {
     private lateinit var binding: ActivitySearchBinding
-
     // bottomNav
     override val bottomNav: BottomNavigationView
         get() = findViewById(R.id.bottomNavigationView)
@@ -32,6 +31,8 @@ class SearchActivity : BaseActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+        supportActionBar?.setTitle("Search")
 
         binding = ActivitySearchBinding.inflate(layoutInflater)
         setContentView(binding.root)
