@@ -26,7 +26,7 @@ TODO: styling
 
 ### Search page
 Endpoint #2 everything. Card views in a recycler view, using search keyword contained in title. Populate card views based on keyword existing in title.  
-TODO: add search bar, styling, fix the selected bottom navigation bar, fix search results not updating
+TODO: add search bar, styling, fix search results not updating
 
 ### Categories
 Endpoint #3 sources. list view with different topics. Click topic and it searches articles related to that topic. ex. clicking sports will search for sports articles.  

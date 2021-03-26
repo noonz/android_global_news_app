@@ -17,6 +17,7 @@ abstract class BaseActivity : AppCompatActivity() {
     override fun onPostCreate(savedInstanceState: Bundle?) {
         super.onPostCreate(savedInstanceState)
 
+        // set bottom nav listener
         bottomNav.setOnNavigationItemSelectedListener { menuItem ->
             if (menuItem.itemId == selectedItemId){
                 return@setOnNavigationItemSelectedListener true
