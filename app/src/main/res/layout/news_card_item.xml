@@ -16,6 +16,8 @@
             android:id="@+id/news_card_image"
             android:layout_width="match_parent"
             android:layout_height="200dp"
+            android:padding="5dp"
+            android:scaleType="fitXY"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"

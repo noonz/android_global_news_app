@@ -1,5 +1,12 @@
-
-/local.properties
-
+# ios
 .DS_Store
 
+# local config
+local.properties
+
+# Android studio
+.idea
+.gradle
+/*/local.properties
+/*/out
+/build

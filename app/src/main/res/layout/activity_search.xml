@@ -14,10 +14,12 @@
         android:padding="20dp"
         android:layout_weight="1"
         android:orientation="vertical" />
+
     <com.google.android.material.bottomnavigation.BottomNavigationView
-        android:id="@+id/bottomNavigationView"
-        android:layout_width="match_parent"
-        android:layout_height="100dp"
-        android:layout_weight="1"
-        app:menu="@menu/bottom_nav_menu" />
+            android:id="@+id/bottomNavigationView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:transitionName="bottom_nav_bar"
+            app:menu="@menu/bottom_nav_menu" />
+
 </LinearLayout>

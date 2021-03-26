@@ -1,21 +1,25 @@
 package com.example.case_study_global_news.ui.main
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.activity.viewModels
-import androidx.lifecycle.observe
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.case_study_global_news.R
 import com.example.case_study_global_news.data.MainRepository
 import com.example.case_study_global_news.databinding.ActivityMainBinding
+import com.example.case_study_global_news.ui.BaseActivity
 import com.example.case_study_global_news.ui.BundleKeys
 import com.example.case_study_global_news.ui.GlobalNewsApp
-import com.example.case_study_global_news.ui.search.SearchActivity
-import com.example.case_study_global_news.ui.categories.CategoryActivity
 import com.google.android.material.bottomnavigation.BottomNavigationView
 
-class MainActivity : AppCompatActivity() {
+class MainActivity : BaseActivity() {
+    private lateinit var binding: ActivityMainBinding
+
+    // bottomNav
+    override val bottomNav: BottomNavigationView
+        get() = binding.bottomNavigationView
+    override val selectedItemId: Int get() = R.id.home
+
     // View Model
     private val viewModel by viewModels<MainViewModel> {
         val globalNewsApplication = application as GlobalNewsApp
@@ -23,8 +27,6 @@ class MainActivity : AppCompatActivity() {
         val mainRepository = MainRepository(apiService)
         MainViewModelFactory(mainRepository)
     }
-
-    private lateinit var binding: ActivityMainBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -34,8 +36,8 @@ class MainActivity : AppCompatActivity() {
 
         binding.homeRecyclerView.layoutManager = LinearLayoutManager(this)
 
-        val adapter = MainCardAdapter(OnArticleClickListener { article ->
-            viewModel.onArticleClick(article)
+        val adapter = MainCardAdapter(OnArticleClickListener { articleInfo ->
+            viewModel.onArticleClick(articleInfo)
         })
         binding.homeRecyclerView.adapter = adapter
 
@@ -54,36 +56,5 @@ class MainActivity : AppCompatActivity() {
                 viewModel.onNavigateArticleComplete()
             }
         }
-
-        // set bottom nav listener
-        binding.bottomNavigationView.setOnNavigationItemSelectedListener(
-            mOnNavigationItemSelectedListener
-        )
     }
-
-    // bottom nav view listener
-    private val mOnNavigationItemSelectedListener =
-        BottomNavigationView.OnNavigationItemSelectedListener { menuItem ->
-            when (menuItem.itemId) {
-                R.id.home -> {
-                    val intent = Intent(this, MainActivity::class.java)
-                    startActivity(intent)
-
-                    return@OnNavigationItemSelectedListener true
-                }
-                R.id.search -> {
-                    val intent = Intent(this, SearchActivity::class.java)
-                    startActivity(intent)
-
-                    return@OnNavigationItemSelectedListener true
-                }
-                R.id.categories -> {
-                    val intent = Intent(this, CategoryActivity::class.java)
-                    startActivity(intent)
-
-                    return@OnNavigationItemSelectedListener true
-                }
-            }
-            false
-        }
 }

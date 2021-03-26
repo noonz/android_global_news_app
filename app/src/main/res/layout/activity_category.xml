@@ -9,12 +9,12 @@
 
     <Button
         android:id="@+id/button_business"
-        android:gravity="start"
         android:layout_width="match_parent"
         android:layout_height="53dp"
         android:layout_marginTop="64dp"
         android:background="#fff"
         android:drawableLeft="@drawable/ic_baseline_about_24"
+        android:gravity="start"
         android:text="@string/business_text"
         android:textColor="#000"
         app:layout_constraintEnd_toEndOf="parent"
@@ -24,11 +24,11 @@
 
     <Button
         android:id="@+id/button_entertainment"
-        android:gravity="start"
         android:layout_width="match_parent"
         android:layout_height="53dp"
         android:background="#fff"
         android:drawableLeft="@drawable/ic_baseline_about_24"
+        android:gravity="start"
         android:text="@string/entertainment_text"
         android:textColor="#000"
         app:layout_constraintEnd_toEndOf="parent"
@@ -37,11 +37,11 @@
 
     <Button
         android:id="@+id/button_general"
-        android:gravity="start"
         android:layout_width="match_parent"
         android:layout_height="53dp"
         android:background="#fff"
         android:drawableLeft="@drawable/ic_baseline_about_24"
+        android:gravity="start"
         android:text="@string/general_text"
         android:textColor="#000"
         app:layout_constraintEnd_toEndOf="parent"
@@ -50,11 +50,11 @@
 
     <Button
         android:id="@+id/button_health"
-        android:gravity="start"
         android:layout_width="match_parent"
         android:layout_height="53dp"
         android:background="#fff"
         android:drawableLeft="@drawable/ic_baseline_about_24"
+        android:gravity="start"
         android:text="@string/health_text"
         android:textColor="#000"
         app:layout_constraintEnd_toEndOf="parent"
@@ -63,11 +63,11 @@
 
     <Button
         android:id="@+id/button_science"
-        android:gravity="start"
         android:layout_width="match_parent"
         android:layout_height="53dp"
         android:background="#fff"
         android:drawableLeft="@drawable/ic_baseline_about_24"
+        android:gravity="start"
         android:text="@string/science_text"
         android:textColor="#000"
         app:layout_constraintEnd_toEndOf="parent"
@@ -76,11 +76,11 @@
 
     <Button
         android:id="@+id/button_sports"
-        android:gravity="start"
         android:layout_width="match_parent"
         android:layout_height="53dp"
         android:background="#fff"
         android:drawableLeft="@drawable/ic_baseline_about_24"
+        android:gravity="start"
         android:text="@string/sports_text"
         android:textColor="#000"
         app:layout_constraintEnd_toEndOf="parent"
@@ -89,11 +89,11 @@
 
     <Button
         android:id="@+id/button_technology"
-        android:gravity="start"
         android:layout_width="match_parent"
         android:layout_height="53dp"
         android:background="#fff"
         android:drawableLeft="@drawable/ic_baseline_about_24"
+        android:gravity="start"
         android:text="@string/technology_text"
         android:textColor="#000"
         app:layout_constraintEnd_toEndOf="parent"
@@ -104,8 +104,9 @@
         android:id="@+id/bottomNavigationView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:menu="@menu/bottom_nav_menu"
-        app:layout_constraintBottom_toBottomOf="parent"/>
+        android:transitionName="bottom_nav_bar"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:menu="@menu/bottom_nav_menu" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
