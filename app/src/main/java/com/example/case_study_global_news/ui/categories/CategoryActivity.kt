@@ -1,17 +1,20 @@
 package com.example.case_study_global_news.ui.categories
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.example.case_study_global_news.R
 import com.example.case_study_global_news.databinding.ActivityCategoryBinding
+import com.example.case_study_global_news.ui.BaseActivity
 import com.example.case_study_global_news.ui.BundleKeys
-import com.example.case_study_global_news.ui.main.MainActivity
-import com.example.case_study_global_news.ui.search.SearchActivity
 import com.google.android.material.bottomnavigation.BottomNavigationView
 
-class CategoryActivity : AppCompatActivity() {
+class CategoryActivity : BaseActivity() {
     private lateinit var binding: ActivityCategoryBinding
+
+    // bottomNav
+    override val bottomNav: BottomNavigationView
+        get() = findViewById(R.id.bottomNavigationView)
+    override val selectedItemId: Int get() = R.id.categories
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -60,36 +63,5 @@ class CategoryActivity : AppCompatActivity() {
             intent.putExtra(BundleKeys.KEYWORD, "technology")
             startActivity(intent)
         }
-
-        // set bottom nav listener
-        binding.bottomNavigationView.setOnNavigationItemSelectedListener(
-            mOnNavigationItemSelectedListener
-        )
     }
-
-    // bottom nav view listener
-    private val mOnNavigationItemSelectedListener =
-        BottomNavigationView.OnNavigationItemSelectedListener { menuItem ->
-            when (menuItem.itemId) {
-                R.id.home -> {
-                    val intent = Intent(this, MainActivity::class.java)
-                    startActivity(intent)
-
-                    return@OnNavigationItemSelectedListener true
-                }
-                R.id.search -> {
-                    val intent = Intent(this, SearchActivity::class.java)
-                    startActivity(intent)
-
-                    return@OnNavigationItemSelectedListener true
-                }
-                R.id.categories -> {
-                    val intent = Intent(this, CategoryActivity::class.java)
-                    startActivity(intent)
-
-                    return@OnNavigationItemSelectedListener true
-                }
-            }
-            false
-        }
 }

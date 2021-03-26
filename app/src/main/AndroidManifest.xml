@@ -13,7 +13,8 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Case_study_global_news"
         android:usesCleartextTraffic="true">
-        <activity android:name=".ui.main.WebViewActivity"></activity>
+        <activity android:name=".ui.BaseActivity"/>
+        <activity android:name=".ui.main.WebViewActivity" />
         <activity android:name=".ui.categories.CategorySelectedActivity" />
         <activity android:name=".ui.categories.CategoryActivity" />
         <activity android:name=".ui.search.SearchActivity" />
