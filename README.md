@@ -15,14 +15,14 @@ Libraries used in this project include:
 **Moshi:** Parse JSON  
 
 ## Screenshots
-![](https://imgur.com/Zc5OpDz)
+![](./screenshots/global_news_beta.PNG)
 
 ## TODO
 
 ### Main page
 Endpoint #1 top headlines. Card views in recycler view using title, title image,
 published time, and possible save button.  
-TODO: add styling, fix the selected bottom navigation bar
+TODO: styling
 
 ### Search page
 Endpoint #2 everything. Card views in a recycler view, using search keyword contained in title. Populate card views based on keyword existing in title.  

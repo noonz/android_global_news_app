@@ -17,6 +17,7 @@ interface ApiService {
     @GET("sources?apiKey=86209e63f5784c66b33502c1d0bc66fe&language=en")
     suspend fun fetchCategories(@Query("category") category: String): Categories
 
+
     // Endpoint #3: everything?apiKey=API_KEY&q=SEARCHPARAM
     @GET("everything?apiKey=86209e63f5784c66b33502c1d0bc66fe&language=en")
     suspend fun fetchSearchResults(@Query("q") q: String): Articles

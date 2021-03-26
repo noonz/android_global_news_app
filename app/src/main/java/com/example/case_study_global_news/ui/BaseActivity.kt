@@ -1,5 +1,6 @@
 package com.example.case_study_global_news.ui
 
+import android.app.ActivityOptions
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -15,7 +16,30 @@ abstract class BaseActivity : AppCompatActivity() {
 
     override fun onPostCreate(savedInstanceState: Bundle?) {
         super.onPostCreate(savedInstanceState)
-        bottomNav.setOnNavigationItemSelectedListener(navItemSelectedListener)
+
+        bottomNav.setOnNavigationItemSelectedListener { menuItem ->
+            if (menuItem.itemId == selectedItemId){
+                return@setOnNavigationItemSelectedListener true
+            }
+            val options = ActivityOptions.makeSceneTransitionAnimation(
+                this, bottomNav,"bottom_nav_bar"
+            )
+            when (menuItem.itemId) {
+                R.id.home -> {
+                    startActivity(Intent(this, MainActivity::class.java), options.toBundle())
+                    return@setOnNavigationItemSelectedListener true
+                }
+                R.id.search -> {
+                    startActivity(Intent(this, SearchActivity::class.java), options.toBundle())
+                    return@setOnNavigationItemSelectedListener true
+                }
+                R.id.categories -> {
+                    startActivity(Intent(this, CategoryActivity::class.java), options.toBundle())
+                    return@setOnNavigationItemSelectedListener true
+                }
+            }
+            false
+        }
     }
 
     override fun onResume() {
@@ -23,25 +47,5 @@ abstract class BaseActivity : AppCompatActivity() {
         bottomNav.selectedItemId = selectedItemId
     }
 
-    private val navItemSelectedListener =
-        BottomNavigationView.OnNavigationItemSelectedListener { menuItem ->
-            if (menuItem.itemId == selectedItemId){
-                return@OnNavigationItemSelectedListener true
-            }
-            when (menuItem.itemId) {
-                R.id.home -> {
-                    startActivity(Intent(this, MainActivity::class.java))
-                    return@OnNavigationItemSelectedListener true
-                }
-                R.id.search -> {
-                    startActivity(Intent(this, SearchActivity::class.java))
-                    return@OnNavigationItemSelectedListener true
-                }
-                R.id.categories -> {
-                    startActivity(Intent(this, CategoryActivity::class.java))
-                    return@OnNavigationItemSelectedListener true
-                }
-            }
-            false
-        }
+
 }
