@@ -17,7 +17,7 @@ Libraries used in this project include:
 ## Screenshots
 ![](./screenshots/global_news_beta.PNG)
 
-## TODO
+## Pages
 
 ### Main page
 Endpoint #1 top headlines. Card views in recycler view using title, title image,
