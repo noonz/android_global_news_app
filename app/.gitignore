@@ -1,1 +1,18 @@
-/build
+# OSX files
+.DS_Store
+
+# Local Config
+local.properties
+
+# Android Studio
+.idea
+.gradle
+/*/local.properties
+/*/out
+/*/*/build
+build
+/*/*/production
+*.iml
+*.iws
+*.ipr
+*.swp

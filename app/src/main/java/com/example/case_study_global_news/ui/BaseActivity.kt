@@ -46,6 +46,4 @@ abstract class BaseActivity : AppCompatActivity() {
         super.onResume()
         bottomNav.selectedItemId = selectedItemId
     }
-
-
 }
