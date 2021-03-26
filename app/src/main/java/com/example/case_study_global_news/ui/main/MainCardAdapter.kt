@@ -36,7 +36,7 @@ class MainViewHolder private constructor(private val binding: NewsCardItemBindin
     // populate home news card items here
     fun bind(value: ArticleInfo, positon: Int, listener: OnArticleClickListener) {
         binding.newsCardTitle.text = value.title
-        binding.newsCardDate.text = value.datePublished
+        binding.newsCardDate.text = value.getFormattedDate()
         binding.newsCardPublisher.text = value.source.publisher
         Glide.with(itemView.context)
             .load(value.imageURL)
