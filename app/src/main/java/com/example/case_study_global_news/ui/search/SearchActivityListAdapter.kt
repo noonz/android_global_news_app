@@ -4,12 +4,12 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
-import com.example.case_study_global_news.data.network.models.ArticleInfo
+import com.example.case_study_global_news.data.network.models.WebArticleInfo
 import com.example.case_study_global_news.databinding.NewsCardItemBinding
 
 class SearchActivityListAdapter(private val listener: OnResultClickListener) :
     RecyclerView.Adapter<SearchResultsViewHolder>() {
-    var searchResultInfoList: List<ArticleInfo> = emptyList()
+    var searchResultInfoList: List<WebArticleInfo> = emptyList()
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): SearchResultsViewHolder {
         return SearchResultsViewHolder.from(parent)
@@ -34,7 +34,7 @@ class SearchResultsViewHolder private constructor(private val binding: NewsCardI
     }
 
     // populate search result card items here
-    fun bind(value: ArticleInfo, positon: Int, listener: OnResultClickListener) {
+    fun bind(value: WebArticleInfo, positon: Int, listener: OnResultClickListener) {
         binding.newsCardTitle.text = value.title
         binding.newsCardDate.text = value.datePublished
         binding.newsCardPublisher.text = value.source.publisher
@@ -49,6 +49,6 @@ class SearchResultsViewHolder private constructor(private val binding: NewsCardI
 }
 
 // helper class to handle a click event
-class OnResultClickListener(private val listener: (info: ArticleInfo) -> Unit) {
-    fun onResultClick(info: ArticleInfo) = listener.invoke(info)
+class OnResultClickListener(private val listener: (info: WebArticleInfo) -> Unit) {
+    fun onResultClick(info: WebArticleInfo) = listener.invoke(info)
 }

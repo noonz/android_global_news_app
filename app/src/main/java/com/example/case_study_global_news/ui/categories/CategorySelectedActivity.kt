@@ -16,7 +16,8 @@ class CategorySelectedActivity : AppCompatActivity() {
     private val viewModel by viewModels<CategoryViewModel> {
         val globalNewsApplication = application as GlobalNewsApp
         val apiService = globalNewsApplication.serviceLocator.apiService
-        val mainRepository = MainRepository(apiService)
+        val database  = globalNewsApplication.serviceLocator.database
+        val mainRepository = MainRepository(apiService,database)
         CategoryViewModelFactory(mainRepository, this, intent.extras)
     }
     private lateinit var binding: ActivityCategorySelectedBinding

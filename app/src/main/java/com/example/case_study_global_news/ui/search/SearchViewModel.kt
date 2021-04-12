@@ -2,17 +2,17 @@ package com.example.case_study_global_news.ui.search
 
 import androidx.lifecycle.*
 import com.example.case_study_global_news.data.MainRepository
-import com.example.case_study_global_news.data.network.models.ArticleInfo
+import com.example.case_study_global_news.data.network.models.WebArticleInfo
 import kotlinx.coroutines.launch
 import java.lang.IllegalArgumentException
 
 class SearchViewModel (private val mainRepository: MainRepository) : ViewModel(){
     val searchResultList = mainRepository.searchResults
 
-    private val _navigateToSearchResults = MutableLiveData<ArticleInfo?>();
-    val navigateToSearchResult: LiveData<ArticleInfo?> get() = _navigateToSearchResults;
+    private val _navigateToSearchResults = MutableLiveData<WebArticleInfo?>();
+    val navigateToSearchResult: LiveData<WebArticleInfo?> get() = _navigateToSearchResults;
 
-    fun onSearchResultClick(articles: ArticleInfo) {
+    fun onSearchResultClick(articles: WebArticleInfo) {
         _navigateToSearchResults.value = articles
     }
 
@@ -22,7 +22,7 @@ class SearchViewModel (private val mainRepository: MainRepository) : ViewModel()
 
     init {
         viewModelScope.launch {
-            mainRepository.getSearchResults("covid") // TODO: change keyword to user search input
+            mainRepository.getSearchResults("biden") // TODO: change keyword to user search input
         }
     }
 }

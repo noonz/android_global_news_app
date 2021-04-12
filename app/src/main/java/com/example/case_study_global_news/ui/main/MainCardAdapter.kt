@@ -4,7 +4,8 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
-import com.example.case_study_global_news.data.network.models.ArticleInfo
+import com.example.case_study_global_news.data.domain.ArticleInfo
+import com.example.case_study_global_news.data.network.models.WebArticleInfo
 import com.example.case_study_global_news.databinding.NewsCardItemBinding
 
 class MainCardAdapter(private val listener: OnArticleClickListener) :
@@ -37,7 +38,7 @@ class MainViewHolder private constructor(private val binding: NewsCardItemBindin
     fun bind(value: ArticleInfo, positon: Int, listener: OnArticleClickListener) {
         binding.newsCardTitle.text = value.title
         binding.newsCardDate.text = value.getFormattedDate()
-        binding.newsCardPublisher.text = value.source.publisher
+//        binding.newsCardPublisher.text = value.source.publisher
         Glide.with(itemView.context)
             .load(value.imageURL)
             .centerInside()

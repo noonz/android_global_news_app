@@ -24,7 +24,8 @@ class MainActivity : BaseActivity() {
     private val viewModel by viewModels<MainViewModel> {
         val globalNewsApplication = application as GlobalNewsApp
         val apiService = globalNewsApplication.serviceLocator.apiService
-        val mainRepository = MainRepository(apiService)
+        val database = globalNewsApplication.serviceLocator.database
+        val mainRepository = MainRepository(apiService, database)
         MainViewModelFactory(mainRepository)
     }
 
@@ -45,7 +46,7 @@ class MainActivity : BaseActivity() {
         binding.homeRecyclerView.adapter = adapter
 
         viewModel.articleList.observe(this) {
-            adapter.articleInfoList = it.articles
+            adapter.articleInfoList = it
             adapter.notifyDataSetChanged()
         }
 

@@ -2,7 +2,8 @@ package com.example.case_study_global_news.ui.main
 
 import androidx.lifecycle.*
 import com.example.case_study_global_news.data.MainRepository
-import com.example.case_study_global_news.data.network.models.ArticleInfo
+import com.example.case_study_global_news.data.domain.ArticleInfo
+import com.example.case_study_global_news.data.network.models.WebArticleInfo
 import kotlinx.coroutines.launch
 import java.lang.IllegalArgumentException
 

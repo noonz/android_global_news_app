@@ -25,7 +25,8 @@ class SearchActivity : BaseActivity() {
     private val viewModel by viewModels<SearchViewModel> {
         val globalNewsApplication = application as GlobalNewsApp
         val apiService = globalNewsApplication.serviceLocator.apiService
-        val mainRepository = MainRepository(apiService)
+        val database = globalNewsApplication.serviceLocator.database
+        val mainRepository = MainRepository(apiService,database)
         SearchViewModelFactory(mainRepository)
     }
 

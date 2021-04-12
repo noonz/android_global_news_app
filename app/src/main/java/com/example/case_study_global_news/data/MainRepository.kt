@@ -2,16 +2,25 @@ package com.example.case_study_global_news.data
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
+import androidx.lifecycle.map
+import com.example.case_study_global_news.data.database.NewsArticleDatabase
+import com.example.case_study_global_news.data.domain.ArticleInfo
 import com.example.case_study_global_news.data.network.ApiService
 import com.example.case_study_global_news.data.network.models.Categories
 import com.example.case_study_global_news.data.network.models.Articles
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.withContext
 import retrofit2.HttpException
 import java.io.IOException
 import java.lang.Exception
 
-class MainRepository(private val apiService: ApiService) {
-    private val _articles = MutableLiveData<Articles>()
-    val articles: LiveData<Articles> get() = _articles
+class MainRepository(private val apiService: ApiService, private val database: NewsArticleDatabase) {
+
+     val articles: LiveData<List<ArticleInfo>> = database.getArticleDao().getArticleInfos().map {localArticles ->
+         localArticles.map { localArticleInfo ->
+             localArticleInfo.toDomainArticleInfo()
+         }
+     }
 
     private val _categories = MutableLiveData<Categories>()
     val categories: LiveData<Categories> get() = _categories
@@ -37,9 +46,14 @@ class MainRepository(private val apiService: ApiService) {
         } catch (e: Exception) {
             null
         }
-
-        _articles.value = articles ?: null
-    }
+        articles?.let {
+            withContext(Dispatchers.IO){
+                database.getArticleDao().insertAll(articles.articles.map {
+                    it.toLocalArticleInfo()
+                })
+            }
+        }
+     }
 
     // Loads the list of categories and saves it to LiveData
     suspend fun getNewsCategories(keyword: String) {
