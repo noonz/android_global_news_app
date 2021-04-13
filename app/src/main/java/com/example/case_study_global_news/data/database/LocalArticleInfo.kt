@@ -13,26 +13,16 @@ data class LocalArticleInfo(
     val title: String,
     val imageURL: String?,
     val datePublished: String,
-    var url: String
+    var url: String,
+    val source: String
 ) {
-    fun getFormattedDate(): CharSequence? {
-        val currentDate = Date()
-        val dateFormat = SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss'Z'", Locale.getDefault())
-        dateFormat.timeZone = TimeZone.getTimeZone("UTC")
-        val oldDate: Date = dateFormat.parse(datePublished)
-        return DateUtils.getRelativeTimeSpanString(
-            oldDate.time,
-            currentDate.time,
-            DateUtils.HOUR_IN_MILLIS
-        )
-    }
-
     fun toDomainArticleInfo(): ArticleInfo {
         return ArticleInfo(
             title = title,
             imageURL = imageURL,
             datePublished = datePublished,
-            url = url
+            url = url,
+            source = source
         )
     }
 

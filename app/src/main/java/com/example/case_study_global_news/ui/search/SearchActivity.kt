@@ -3,6 +3,8 @@ package com.example.case_study_global_news.ui.search
 import android.content.Intent
 import android.os.Bundle
 import androidx.activity.viewModels
+import androidx.core.view.isVisible
+import androidx.core.widget.addTextChangedListener
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.case_study_global_news.R
 import com.example.case_study_global_news.data.MainRepository
@@ -45,10 +47,25 @@ class SearchActivity : BaseActivity() {
 
         binding.searchRecyclerView.adapter = adapter
 
-        viewModel.searchResultList.observe(this) {
-            adapter.searchResultInfoList = it.articles
+
+        viewModel.resultList.observe(this){
+            adapter.searchResultInfoList = it
             adapter.notifyDataSetChanged()
         }
+
+//        viewModel.searchResultList.observe(this) {
+//            adapter.searchResultInfoList = it
+//            adapter.notifyDataSetChanged()
+//        }
+
+        binding.editText.addTextChangedListener { searchKey ->
+            viewModel.onNewSearchQuery(searchKey.toString())
+        }
+
+//        viewModel.isLoading.observe(this) { isLoading ->
+//            binding?.loading?.isVisible = isLoading
+//            binding?.searchRecyclerView?.isVisible = !isLoading
+//        }
 
         viewModel.navigateToSearchResult.observe(this) { articleInfo ->
             articleInfo?.let {

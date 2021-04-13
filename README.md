@@ -15,7 +15,9 @@ Libraries used in this project include:
 **Moshi:** Parse JSON  
 
 ## Screenshots
-![beta-01](./screenshots/global_news_beta.PNG)
+![homePage](./screenshots/home.PNG)
+![searchPage](./screenshots/search.PNG)
+![categoriesPage](./screenshots/categories.PNG)
 
 ## Pages
 
@@ -26,18 +28,22 @@ TODO: styling??
 
 ### Search page
 Endpoint #2 everything. Card views in a recycler view, using search keyword contained in title. Populate card views based on keyword existing in title.  
-TODO: add search bar, styling, fix search results not updating
+TODO: styling, fix search functionality (semi functional)
 
 ### Categories
 Endpoint #3 sources. list view with different topics. Click topic and it searches articles related to that topic. ex. clicking sports will search for sports articles.  
-TODO: styling??
+TODO: styling, add categories to database
 
 ### Saved articles page
 Bookmark articles from anywhere to store in database
-viewing.  
-TODO: viewpager2 for favourites list, fix the selected bottom navigation bar
+viewing.
+TODO: viewpager2 for favourites list
 
 ### Setup Room Database
 Configure local and domain layers
+- add flag called headline
+- delete unfaved data from dao
+- unset headline flag when fetching new articles from saved articles
 
-## Credits: Dave, Zhihong, Rasheen
+
+## Credits: Dave Nunez, Zhihong Cai, Rasheen Ruwisha

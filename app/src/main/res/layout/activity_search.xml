@@ -8,6 +8,31 @@
     tools:context=".ui.search.SearchActivity"
     android:orientation="vertical">
 
+    <androidx.appcompat.widget.AppCompatEditText
+        android:id="@+id/edit_text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#3D3D3D"
+        android:textSize="14sp"
+        android:textColor="@android:color/white"
+        android:padding="10dp"
+        android:drawableStart="@drawable/ic_baseline_search_24"
+        android:maxLines="1"
+        android:inputType="text"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ProgressBar
+        android:id="@+id/loading"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+        android:visibility="gone"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/edit_text"
+        app:layout_constraintEnd_toEndOf="parent" />
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/search_recycler_view"
         android:layout_width="match_parent"
@@ -16,11 +41,15 @@
         android:layout_weight="1"
         android:orientation="vertical" />
 
+
+
     <com.google.android.material.bottomnavigation.BottomNavigationView
             android:id="@+id/bottomNavigationView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:transitionName="bottom_nav_bar"
             app:menu="@menu/bottom_nav_menu" />
+
+
 
 </LinearLayout>

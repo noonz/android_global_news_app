@@ -38,7 +38,7 @@ class MainViewHolder private constructor(private val binding: NewsCardItemBindin
     fun bind(value: ArticleInfo, positon: Int, listener: OnArticleClickListener) {
         binding.newsCardTitle.text = value.title
         binding.newsCardDate.text = value.getFormattedDate()
-//        binding.newsCardPublisher.text = value.source.publisher
+        binding.newsCardPublisher.text = value.source
         Glide.with(itemView.context)
             .load(value.imageURL)
             .centerInside()

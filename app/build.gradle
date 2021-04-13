@@ -10,7 +10,7 @@ android {
 
     defaultConfig {
         applicationId "com.example.case_study_global_news"
-        minSdkVersion 26
+        minSdkVersion 21
         targetSdkVersion 30
         versionCode 1
         versionName "1.0"
@@ -27,6 +27,7 @@ android {
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
+        coreLibraryDesugaringEnabled true
     }
     kotlinOptions {
         jvmTarget = '1.8'
@@ -73,6 +74,13 @@ dependencies {
     kapt "com.github.bumptech.glide:compiler:$glide_version"
 
     //Room database
-    implementation "androidx.room:room-runtime:2.2.6"
-    kapt "androidx.room:room-compiler:2.2.6"
+    implementation "androidx.room:room-runtime:$room_version"
+    kapt "androidx.room:room-compiler:$room_version"
+
+    //Room Kotlin Flow
+    implementation "androidx.room:room-ktx:$room_version"
+
+
+    //Desugaring
+    coreLibraryDesugaring 'com.android.tools:desugar_jdk_libs:1.0.9'
 }

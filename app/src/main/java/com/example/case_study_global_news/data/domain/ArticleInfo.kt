@@ -9,7 +9,8 @@ data class ArticleInfo(
     val title: String,
     val imageURL: String?,
     val datePublished: String,
-    var url: String
+    var url: String,
+    val source: String
 ){
     fun getFormattedDate(): CharSequence? {
         val currentDate = Date()
@@ -27,6 +28,7 @@ data class ArticleInfo(
         title = title,
         imageURL = imageURL,
         datePublished = datePublished,
-        url = url
+        url = url,
+        source = source
     )
 }
