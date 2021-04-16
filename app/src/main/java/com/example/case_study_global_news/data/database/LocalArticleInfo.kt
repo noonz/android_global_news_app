@@ -25,5 +25,4 @@ data class LocalArticleInfo(
             source = source
         )
     }
-
 }

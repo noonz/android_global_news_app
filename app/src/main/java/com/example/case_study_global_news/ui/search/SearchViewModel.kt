@@ -22,9 +22,9 @@ class SearchViewModel (private val mainRepository: MainRepository) : ViewModel()
     private val searchKey = MutableStateFlow<String?>(null)
 
     fun onNewSearchQuery(key: String) {
-//        searchKey.value = key
+        searchKey.value = key
         viewModelScope.launch{
-            mainRepository.getSearchResults("bitcoin")
+//            mainRepository.getSearchResults("bitcoin")
         }
     }
 
@@ -34,6 +34,7 @@ class SearchViewModel (private val mainRepository: MainRepository) : ViewModel()
         }
         .debounce { if (it.isNullOrBlank()) 0 else 1000 }
         .flatMapLatest { searchKey ->
+            mainRepository.getSearchResults(searchKey)
             mainRepository.searchResults.map { articleInfos ->
                 articleInfos.filter { article ->
                     (searchKey.isNullOrBlank() || article.title.contains(
@@ -57,11 +58,11 @@ class SearchViewModel (private val mainRepository: MainRepository) : ViewModel()
     }
 
 
-    init {
-        viewModelScope.launch {
-            mainRepository.getSearchResults("basketball") // TODO: change keyword to user search input
-        }
-    }
+//    init {
+//        viewModelScope.launch {
+//            mainRepository.getSearchResults("")
+//        }
+//    }
 
 
 }
