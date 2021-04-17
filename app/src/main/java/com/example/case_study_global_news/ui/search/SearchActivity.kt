@@ -49,23 +49,24 @@ class SearchActivity : BaseActivity() {
 
 
         viewModel.resultList.observe(this){
+//            if (it.isNullOrEmpty()){
+//                adapter.searchResultInfoList = emptyList()
+//            } else {
+//                adapter.searchResultInfoList = it
+//            }
             adapter.searchResultInfoList = it
             adapter.notifyDataSetChanged()
         }
-
-//        viewModel.searchResultList.observe(this) {
-//            adapter.searchResultInfoList = it
-//            adapter.notifyDataSetChanged()
-//        }
 
         binding.editText.addTextChangedListener { searchKey ->
             viewModel.onNewSearchQuery(searchKey.toString())
         }
 
-//        viewModel.isLoading.observe(this) { isLoading ->
-//            binding?.loading?.isVisible = isLoading
-//            binding?.searchRecyclerView?.isVisible = !isLoading
-//        }
+        viewModel.isLoading.observe(this) { isLoading ->
+            binding?.loading?.isVisible = isLoading
+            binding?.bottomNavigationView?.isVisible = !isLoading
+            binding?.searchRecyclerView?.isVisible = !isLoading
+        }
 
         viewModel.navigateToSearchResult.observe(this) { articleInfo ->
             articleInfo?.let {

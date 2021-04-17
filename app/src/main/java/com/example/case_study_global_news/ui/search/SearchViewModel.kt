@@ -16,21 +16,18 @@ class SearchViewModel (private val mainRepository: MainRepository) : ViewModel()
     val navigateToSearchResult: LiveData<ArticleInfo?> get() = _navigateToSearchResults;
 
     // search box stuff
-//    private val _isLoading = MutableLiveData(false)
-//    val isLoading: LiveData<Boolean> get() = _isLoading
+    private val _isLoading = MutableLiveData(false)
+    val isLoading: LiveData<Boolean> get() = _isLoading
 
     private val searchKey = MutableStateFlow<String?>(null)
 
     fun onNewSearchQuery(key: String) {
         searchKey.value = key
-        viewModelScope.launch{
-//            mainRepository.getSearchResults("bitcoin")
-        }
     }
 
-    val resultList = searchKey
+    var resultList = searchKey
         .onEach {
-//            _isLoading.value = true
+            _isLoading.value = true
         }
         .debounce { if (it.isNullOrBlank()) 0 else 1000 }
         .flatMapLatest { searchKey ->
@@ -45,7 +42,7 @@ class SearchViewModel (private val mainRepository: MainRepository) : ViewModel()
             }
         }
         .onEach {
-//            _isLoading.value = false
+            _isLoading.value = false
         }
         .asLiveData()
 
@@ -60,10 +57,9 @@ class SearchViewModel (private val mainRepository: MainRepository) : ViewModel()
 
 //    init {
 //        viewModelScope.launch {
-//            mainRepository.getSearchResults("")
+//            resultList =
 //        }
 //    }
-
 
 }
 
