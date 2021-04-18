@@ -10,7 +10,6 @@ import kotlinx.coroutines.launch
 import java.lang.IllegalArgumentException
 
 class SearchViewModel (private val mainRepository: MainRepository) : ViewModel(){
-    val searchResultList = mainRepository.searchResults
 
     private val _navigateToSearchResults = MutableLiveData<ArticleInfo?>();
     val navigateToSearchResult: LiveData<ArticleInfo?> get() = _navigateToSearchResults;
@@ -54,12 +53,6 @@ class SearchViewModel (private val mainRepository: MainRepository) : ViewModel()
         _navigateToSearchResults.value = null
     }
 
-
-//    init {
-//        viewModelScope.launch {
-//            resultList =
-//        }
-//    }
 
 }
 

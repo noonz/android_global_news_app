@@ -47,14 +47,15 @@ class SearchActivity : BaseActivity() {
 
         binding.searchRecyclerView.adapter = adapter
 
-
+        // scuffed way of making sure our recyclerview is empty on initialization
+        var i = 0
         viewModel.resultList.observe(this){
-//            if (it.isNullOrEmpty()){
-//                adapter.searchResultInfoList = emptyList()
-//            } else {
-//                adapter.searchResultInfoList = it
-//            }
-            adapter.searchResultInfoList = it
+            if (i==0) {
+                adapter.searchResultInfoList = emptyList()
+                i++
+            } else {
+                adapter.searchResultInfoList = it
+            }
             adapter.notifyDataSetChanged()
         }
 
