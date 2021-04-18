@@ -34,7 +34,7 @@ Endpoint #3 sources. list view with different topics. Click topic and it searche
 
 
 ### Saved articles page
-Bookmark articles from anywhere to store in database viewing.
+Bookmark articles from anywhere to store in database viewing.  
 TODO: viewpager2 for favourites list
 
 ### Setup Room Database
