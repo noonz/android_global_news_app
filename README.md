@@ -15,9 +15,12 @@ Libraries used in this project include:
 **Moshi:** Parse JSON  
 
 ## Screenshots
-![homePage](./screenshots/home.PNG)
-![searchPage](./screenshots/search.PNG)
-![categoriesPage](./screenshots/categories.PNG)
+<p float="left">
+  <img src="./screenshots/home.png" width="300" height="600">
+  <img src="./screenshots/search.png" width="300" height="600">
+  <img src="./screenshots/webview.png" width="300" height="600">
+  <img src="./screenshots/categories.png" width="300" height="600">
+</p>
 
 ## Pages
 
