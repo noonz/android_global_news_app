@@ -16,10 +16,10 @@ Libraries used in this project include:
 
 ## Screenshots
 <p float="left">
-  <img src="./screenshots/home.png" width="300" height="600">
-  <img src="./screenshots/search.png" width="300" height="600">
+  <img src="./screenshots/home.PNG" width="300" height="600">
+  <img src="./screenshots/search.PNG" width="300" height="600">
   <img src="./screenshots/webview.png" width="300" height="600">
-  <img src="./screenshots/categories.png" width="300" height="600">
+  <img src="./screenshots/categories.PNG" width="300" height="600">
 </p>
 
 ## Pages
