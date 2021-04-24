@@ -1,5 +1,4 @@
 # Android Global News
-## Prof. Deryk Kim, Advanced Android Development
 
 ## Overview
 This application is a global news app using MVVM architecture. It retrieves news and blogs from NewsApi (https://newsapi.org)
@@ -48,3 +47,4 @@ Configure local and domain layers
 
 
 ## Credits: Dave Nunez, Zhihong Cai, Rasheen Ruwisha
+### Prof. Deryk Kim, Advanced Android Development
